@@ -1,0 +1,25 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- group with single selected item so only one item is highlighted in the nav menu -->
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/item_perfil"
+            android:icon="@drawable/icone_perfil"
+            android:title="Perfil"/>
+        <item
+            android:id="@+id/item_exercicios"
+            android:icon="@drawable/icone_exercicios"
+            android:title="Exercícios"/>
+        <item
+            android:id="@+id/item_relatorios"
+            android:icon="@drawable/icone_relatorios"
+            android:title="Relatórios"/>
+        <item
+            android:id="@+id/item_atividades"
+            android:icon="@drawable/icone_atividades"
+            android:title="Atividades"/>
+        <item
+            android:id="@+id/item_configuracoes"
+            android:icon="@drawable/icone_configuracoes"
+            android:title="Configurações"/>
+    </group>
+</menu>
