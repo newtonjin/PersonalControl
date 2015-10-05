@@ -16,6 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements
         NavigationView.OnNavigationItemSelectedListener {
@@ -67,7 +68,7 @@ public class MainActivity extends AppCompatActivity implements
     }
 
     public void onClickSalvar(View view) {
-
+        Toast.makeText(this, "Salvar...", Toast.LENGTH_SHORT).show();
     }
 
     private void navigate(final int itemId) {
@@ -79,15 +80,23 @@ public class MainActivity extends AppCompatActivity implements
                 break;
             case R.id.item_exercicios:
                 mToolbar.setTitle("Exercícios");
+                mContent.removeAllViews();
+                mContent.addView(new ExerciciosView(this));
                 break;
             case R.id.item_relatorios:
                 mToolbar.setTitle("Relatórios");
+                mContent.removeAllViews();
+                mContent.addView(new RelatoriosView(this));
                 break;
             case R.id.item_atividades:
                 mToolbar.setTitle("Atividades");
+                mContent.removeAllViews();
+                mContent.addView(new AtividadesView(this));
                 break;
             case R.id.item_configuracoes:
                 mToolbar.setTitle("Configurações");
+                mContent.removeAllViews();
+                mContent.addView(new ConfiguracoesView(this));
                 break;
         }
         // perform the actual navigation logic, updating the main content fragment etc
