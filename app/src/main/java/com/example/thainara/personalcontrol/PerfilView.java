@@ -119,7 +119,8 @@ public class PerfilView extends FrameLayout {
             perfilFisico.duracaoJornadaTrabalho = Utils.converteHoraStringParaMinutoInt(duracaoJornadaTrabalhoEdit.getText().toString());
             perfilFisico.duracaoSono = Utils.converteHoraStringParaMinutoInt(horasSonoDiariasEdit.getText().toString());
             perfilFisico.save();
-            Toast.makeText(getContext(), "Suas informações foram salvas...", Toast.LENGTH_SHORT).show();
+
+            Snackbar.make(this, "Informações salvas com sucesso...", Snackbar.LENGTH_SHORT).show();
         }
     }
 

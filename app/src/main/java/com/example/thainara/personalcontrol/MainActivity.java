@@ -1,9 +1,11 @@
 package com.example.thainara.personalcontrol;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Color;
 import android.os.Handler;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -11,6 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.FrameLayout;
 
 public class MainActivity extends AppCompatActivity implements
@@ -138,5 +141,22 @@ public class MainActivity extends AppCompatActivity implements
     protected void onSaveInstanceState(final Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putInt(NAV_ITEM_ID, mNavItemId);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == ExerciciosView.RESULT_EDIT_EXERCICIO && resultCode == RESULT_OK) {//atualiza lista de exercicios
+            for (int i = 0; i < mContent.getChildCount(); ++i) {
+                View view = mContent.getChildAt(i);
+                Snackbar.make(view, "Exercício cadastrado/editado com sucesso.", Snackbar.LENGTH_SHORT).show();
+                if (view instanceof ExerciciosView) {
+                    ((ExerciciosView) view).atualizaLista();
+                    break;
+                }
+            }
+        }
+
     }
 }

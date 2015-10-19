@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <ListView
-        android:id="@+id/listViewExercicios"
+        android:id="@+id/view_exercicios_exercicios_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 

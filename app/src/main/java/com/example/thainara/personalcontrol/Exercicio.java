@@ -21,5 +21,5 @@ public class Exercicio extends BaseModel {
     String descricao;
 
     @Column
-    String dataNascimento;
+    String duracao;
 }
