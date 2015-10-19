@@ -6,4 +6,6 @@
 
     <string name="open">Abrir</string>
     <string name="close">Fechar</string>
+    <string name="nome">Nome</string>
+    <string name="title_activity_exercicio">ExercicioActivity</string>
 </resources>

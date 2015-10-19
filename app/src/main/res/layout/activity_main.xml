@@ -18,7 +18,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="@dimen/abc_action_bar_default_height_material"
-            android:background="#66cccc"
+            android:background="@color/primary"
             android:minHeight="?attr/actionBarSize"
             />
             <!--android:titleTextAppearance="@style/MyTitleTextAppearance"-->
@@ -45,8 +45,8 @@
         android:layout_gravity="start"
         android:background="#393939"
         app:headerLayout="@layout/drawer_header"
-        app:itemIconTint="#66cccc"
-        app:itemTextColor="#66cccc"
+        app:itemIconTint="@color/primary"
+        app:itemTextColor="@color/primary"
         app:menu="@menu/side_menu"/>
 
 </android.support.v4.widget.DrawerLayout>

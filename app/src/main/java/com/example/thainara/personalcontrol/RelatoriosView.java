@@ -1,4 +1,4 @@
-package com.example.jonathan.personalcontrol;
+package com.example.thainara.personalcontrol;
 
 import android.content.Context;
 import android.util.AttributeSet;

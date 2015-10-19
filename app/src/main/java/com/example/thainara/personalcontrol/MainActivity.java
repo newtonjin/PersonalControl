@@ -1,4 +1,4 @@
-package com.example.jonathan.personalcontrol;
+package com.example.thainara.personalcontrol;
 
 import android.content.res.Configuration;
 import android.graphics.Color;
@@ -10,13 +10,8 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements
         NavigationView.OnNavigationItemSelectedListener {
@@ -65,10 +60,6 @@ public class MainActivity extends AppCompatActivity implements
         mDrawerToggle.syncState();
 
         navigate(mNavItemId);
-    }
-
-    public void onClickSalvar(View view) {
-        Toast.makeText(this, "Salvar...", Toast.LENGTH_SHORT).show();
     }
 
     private void navigate(final int itemId) {

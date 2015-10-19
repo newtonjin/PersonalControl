@@ -1,170 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-<RelativeLayout
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<LinearLayout
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:padding="16dp"
     >
 
-    <TextView
-        android:id="@+id/nomeTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:textSize="17dp"
-        android:text="Nome: "/>
+    <android.support.design.widget.TextInputLayout
+        style="@style/TextInput">
 
-    <EditText
-        android:id="@+id/nomeText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:hint="Nome"
-        android:layout_toRightOf="@id/nomeTextView"
-        android:layout_alignBaseline="@id/nomeTextView"
-         />
+        <android.support.v7.widget.AppCompatEditText
+            style="@style/TextInput"
+            android:id="@+id/view_perfil_nome_edit"
+            android:inputType="textPersonName"
+            android:hint="Nome"
+             />
+    </android.support.design.widget.TextInputLayout>
 
-    <TextView
-        android:id="@+id/dataNascimentoTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="17dp"
-        android:layout_below="@id/nomeTextView"
-        android:layout_margin="10dp"
-        android:text="Data nascimento: "/>
+    <android.support.design.widget.TextInputLayout
+        style="@style/TextInput">
 
-    <EditText
-        android:id="@+id/dataNascimentoText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="date"
-        android:layout_toRightOf="@id/dataNascimentoTextView"
-        android:layout_alignBaseline="@id/dataNascimentoTextView"
-        />
+        <com.example.thainara.personalcontrol.MaskedEditText
+            style="@style/TextInput"
+            android:id="@+id/view_perfil_data_nasc_edit"
+            android:inputType="date"
+            android:hint="Data Nascimento"
+            app:mask="99/99/9999"
+            />
+    </android.support.design.widget.TextInputLayout>
 
-    <TextView
-        android:id="@+id/pesoTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="17dp"
-        android:layout_below="@id/dataNascimentoTextView"
-        android:layout_margin="10dp"
-        android:text="Peso: "/>
+    <android.support.design.widget.TextInputLayout
+        style="@style/TextInput">
 
-    <EditText
-        android:id="@+id/pesoText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
-        android:layout_toRightOf="@id/pesoTextView"
-        android:layout_alignBaseline="@id/pesoTextView"
-        />
+        <EditText
+            style="@style/TextInput"
+            android:id="@+id/view_perfil_peso_edit"
+            android:inputType="numberDecimal"
+            android:hint="Peso"
+            />
+    </android.support.design.widget.TextInputLayout>
 
-    <TextView
-        android:id="@+id/alturaTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="17dp"
-        android:layout_below="@id/pesoTextView"
-        android:layout_margin="10dp"
-        android:text="Altura: "/>
+    <android.support.design.widget.TextInputLayout
+        style="@style/TextInput">
 
-    <EditText
-        android:id="@+id/alturaText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
-        android:layout_toRightOf="@id/alturaTextView"
-        android:layout_alignBaseline="@id/alturaTextView"
-        />
+        <com.example.thainara.personalcontrol.MaskedEditText
+            style="@style/TextInput"
+            android:id="@+id/view_perfil_altura_edit"
+            android:inputType="number"
+            android:hint="Altura"
+            app:mask="9.99"
+            />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        style="@style/TextInput">
+
+        <com.example.thainara.personalcontrol.MaskedEditText
+            style="@style/TextInput"
+            android:id="@+id/view_perfil_duracao_jornada_trabalho_edit"
+            android:inputType="numberDecimal"
+            android:hint="Duração Jornada Trabalho"
+            app:mask="9:99 h"
+            />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        style="@style/TextInput">
+
+        <com.example.thainara.personalcontrol.MaskedEditText
+            style="@style/TextInput"
+            android:id="@+id/view_perfil_horas_sono_diarias_edit"
+            android:inputType="numberDecimal"
+            android:hint="Duração Sono"
+            app:mask="9:99 h"
+            />
+    </android.support.design.widget.TextInputLayout>
 
     <TextView
-        android:id="@+id/cargaHorariaTrabalhoTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="17dp"
-        android:layout_below="@id/alturaTextView"
-        android:layout_margin="10dp"
-        android:text="Horas trabalho diárias: "/>
-
-    <EditText
-        android:id="@+id/cargaHorariaTrabalhoText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
-        android:layout_toRightOf="@id/cargaHorariaTrabalhoTextView"
-        android:layout_alignBaseline="@id/cargaHorariaTrabalhoTextView"
-        />
-
-    <TextView
-        android:id="@+id/cargaHorariaSonoTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="17dp"
-        android:layout_below="@id/cargaHorariaTrabalhoTextView"
-        android:layout_margin="10dp"
-        android:text="Horas sono diárias: "/>
-
-    <EditText
-        android:id="@+id/cargaHorariaSonoText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
-        android:layout_toRightOf="@id/cargaHorariaSonoTextView"
-        android:layout_alignBaseline="@id/cargaHorariaSonoTextView"
-        />
-
-    <TextView
-        android:id="@+id/alimentacaoTitulo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:textStyle="bold"
-        android:textSize="17dp"
+        style="@style/TextInput"
         android:text="Alimentação:"
-        android:layout_below="@id/cargaHorariaSonoTextView"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="10dp"
+        android:textSize="17sp"
         />
 
     <RadioGroup
-        android:id="@+id/alimentacaoRadioGroup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/alimentacaoTitulo"
-        android:layout_margin="10dp"
+        style="@style/TextInput"
+        android:id="@+id/view_perfil_tipo_alimentacao_radio_group"
+        android:layout_marginTop="10dp"
         >
         <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/TextInput"
             android:text="Não saudável"
             android:id="@+id/alimentacaoNaoSaudavelRadio"/>
         <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/TextInput"
             android:text="Pouco Saudável"
             android:id="@+id/alimentacaoPoucoSaudavelRadio"/>
         <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/TextInput"
             android:text="Saudável"
             android:id="@+id/alimentacaoSaudavelRadio"/>
         <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/TextInput"
             android:text="Muito saudável"
             android:id="@+id/alimentacaoMuitoSaudavelRadio"/>
     </RadioGroup>
 
     <Button
-        android:id="@+id/salvarButton"
+        style="@style/Button"
+        android:id="@+id/view_perfil_salvar_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Salvar"
-        android:clickable="true"
-        android:enabled="true"
-        android:layout_below="@id/alimentacaoRadioGroup"
-        android:onClick="onClickSalvar" />
+        android:layout_marginTop="10dp"
+        />
 
-</RelativeLayout>
+</LinearLayout>
 </ScrollView>

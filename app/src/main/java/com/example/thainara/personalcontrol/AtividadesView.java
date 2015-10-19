@@ -1,4 +1,4 @@
-package com.example.jonathan.personalcontrol;
+package com.example.thainara.personalcontrol;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -6,22 +6,22 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
 /**
- * Created by Thainara on 28/09/2015.
+ * Created by Thainara on 05/10/2015.
  */
-
-public class PerfilView extends FrameLayout {
-    public PerfilView(Context context) {
+public class AtividadesView extends FrameLayout {
+    public AtividadesView(Context context) {
         super(context);
         init();
     }
 
-    public PerfilView(Context context, AttributeSet attrs) {
+    public AtividadesView(Context context, AttributeSet attrs) {
         super(context, attrs);
         init();
     }
 
     private void init() {
         setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-        inflate(getContext(), R.layout.view_perfil, this);
+        inflate(getContext(), R.layout.view_atividades, this);
     }
 }
+

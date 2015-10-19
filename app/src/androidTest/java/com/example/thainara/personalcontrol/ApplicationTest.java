@@ -1,4 +1,4 @@
-package com.example.jonathan.personalcontrol;
+package com.example.thainara.personalcontrol;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
