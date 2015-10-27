@@ -22,4 +22,6 @@ public class Exercicio extends BaseModel {
 
     @Column
     String duracao;
+
+    boolean selected;
 }

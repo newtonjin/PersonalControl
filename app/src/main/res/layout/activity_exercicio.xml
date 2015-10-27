@@ -38,7 +38,7 @@
             android:id="@+id/activity_exercicio_duracao_edit"
             android:inputType="numberDecimal"
             android:hint="Duração"
-            app:mask="9:99 h"
+            app:mask="99:99 h"
             />
     </android.support.design.widget.TextInputLayout>
 

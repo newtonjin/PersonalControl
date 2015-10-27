@@ -147,16 +147,26 @@ public class MainActivity extends AppCompatActivity implements
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == ExerciciosView.RESULT_EDIT_EXERCICIO && resultCode == RESULT_OK) {//atualiza lista de exercicios
-            for (int i = 0; i < mContent.getChildCount(); ++i) {
-                View view = mContent.getChildAt(i);
-                Snackbar.make(view, "Exercício cadastrado/editado com sucesso.", Snackbar.LENGTH_SHORT).show();
-                if (view instanceof ExerciciosView) {
-                    ((ExerciciosView) view).atualizaLista();
-                    break;
+        if (resultCode == RESULT_OK) {
+            if (requestCode == ExerciciosView.RESULT_EDIT_EXERCICIO) {//atualiza lista de exercicios
+                for (int i = 0; i < mContent.getChildCount(); ++i) {
+                    View view = mContent.getChildAt(i);
+                    Snackbar.make(view, "Exercício cadastrado/editado com sucesso.", Snackbar.LENGTH_SHORT).show();
+                    if (view instanceof ExerciciosView) {
+                        ((ExerciciosView) view).atualizaLista();
+                        break;
+                    }
+                }
+            } else if (requestCode == AtividadesView.RESULT_EDIT_ATIVIDADE) {//atualiza lista de atividades
+                for (int i = 0; i < mContent.getChildCount(); ++i) {
+                    View view = mContent.getChildAt(i);
+                    Snackbar.make(view, "Atividade cadastrada/editada com sucesso.", Snackbar.LENGTH_SHORT).show();
+                    if (view instanceof AtividadesView) {
+                        ((AtividadesView) view).atualizaLista();
+                        break;
+                    }
                 }
             }
         }
-
     }
 }

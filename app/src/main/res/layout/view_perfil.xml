@@ -64,7 +64,7 @@
             android:id="@+id/view_perfil_duracao_jornada_trabalho_edit"
             android:inputType="numberDecimal"
             android:hint="Duração Jornada Trabalho"
-            app:mask="9:99 h"
+            app:mask="99:99 h"
             />
     </android.support.design.widget.TextInputLayout>
 
