@@ -76,7 +76,7 @@ public class RelatorioActivity extends AppCompatActivity {
             }
         } else if (tipoRelatorio == RelatoriosView.TIPO_REL_ALT_DURACAO_JORNADA_TRABALHO) {
             for (PerfilFisico pf : perfilFisicos) {
-                String s = String.format("Jornada Trabalho: %.2f em %s", pf.getDuracaoJornadaTrabalhoAsString(), pf.dataAlteracao);
+                String s = String.format("Jornada Trabalho: %s em %s", pf.getDuracaoJornadaTrabalhoAsString(), pf.dataAlteracao);
                 listaNomes.add(s);
             }
         }

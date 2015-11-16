@@ -99,8 +99,13 @@ public class PerfilView extends FrameLayout {
         PerfilFisico perfilFisico = new Select().from(PerfilFisico.class).orderBy(false, "id").querySingle();
 
         if (possuiDiferencaInfo(perfilFisico)) {
-            if (perfilFisico == null)
+            if (perfilFisico == null) {
                 perfilFisico = new PerfilFisico();
+                perfilFisico.alteracaoDSono = true;
+                perfilFisico.alteracaoDJTrabalho = true;
+                perfilFisico.alteracaoPeso = true;
+                perfilFisico.alteracaoTAlimentacao = true;
+            }
 
             Calendar c = Calendar.getInstance();
             SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
