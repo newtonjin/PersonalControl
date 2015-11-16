@@ -73,6 +73,16 @@ public class AtividadeActivity extends AppCompatActivity {
         atividade_atual = atividade;
         dataEdit.setText(atividade.data);
         horaEdit.setText(atividade.getHoraAsString());
+
+        if (atividade.exercicio != null) {
+            for (Exercicio exercicio : exercicios) {
+                if (exercicio.id == atividade.exercicio.id) {
+                    exercicio.selected = true;
+                    adapter.notifyDataSetChanged();
+                    break;
+                }
+            }
+        }
     }
 
     @OnClick(R.id.activity_atividade_salvar_button)
@@ -89,6 +99,8 @@ public class AtividadeActivity extends AppCompatActivity {
         String data = dataEdit.getText().toString();
         novaAtividade.data = data;
         novaAtividade.hora = Utils.converteHoraStringParaMinutoInt(horaEdit.getText().toString());
+
+
         novaAtividade.save();
 
         setResult(RESULT_OK);
