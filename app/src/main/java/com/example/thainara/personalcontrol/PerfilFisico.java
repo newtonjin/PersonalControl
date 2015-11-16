@@ -39,6 +39,42 @@ public class PerfilFisico extends BaseModel {
     @Column
     int tipoAlimentacao;
 
+    @Column
+    String dataAlteracao;
+
+    @Column
+    boolean alteracaoPeso;
+
+    @Column
+    boolean alteracaoDJTrabalho;
+
+    @Column
+    boolean alteracaoDSono;
+
+    @Column
+    boolean alteracaoTAlimentacao;
+
+    public String getTipoAlimentacaoAsString() {
+        String ret = null;
+
+        switch (PerfilView.TIPO_ALIMENTACAO.values()[tipoAlimentacao]) {
+            case NAO_SAUDAVEL:
+                ret = "Não saudável";
+                break;
+            case POUCO_SAUDAVEL:
+                ret = "Pouco saudável";
+                break;
+            case SAUDAVEL:
+                ret = "Saudável";
+                break;
+            case MUITO_SAUDAVEL:
+                ret = "Muito saudável";
+                break;
+        }
+
+        return ret;
+    }
+
     public String getDuracaoJornadaTrabalhoAsString() {
         return String.format("%d:%02d", duracaoJornadaTrabalho/60, duracaoJornadaTrabalho%60);
     }

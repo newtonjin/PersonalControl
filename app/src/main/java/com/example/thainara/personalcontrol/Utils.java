@@ -6,6 +6,8 @@ package com.example.thainara.personalcontrol;
 
 public class Utils {
 
+
+
     public static int converteHoraStringParaMinutoInt(String horas) {
         int minutos = 0;
         String[] info = horas.replace(" h", "").split(":");
@@ -18,4 +20,6 @@ public class Utils {
 
         return minutos;
     }
+
+
 }

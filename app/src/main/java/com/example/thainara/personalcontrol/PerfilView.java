@@ -11,6 +11,9 @@ import android.widget.Toast;
 
 import com.raizlabs.android.dbflow.sql.language.Select;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -96,7 +99,14 @@ public class PerfilView extends FrameLayout {
         PerfilFisico perfilFisico = new Select().from(PerfilFisico.class).orderBy(false, "id").querySingle();
 
         if (possuiDiferencaInfo(perfilFisico)) {
-            perfilFisico = new PerfilFisico();
+            if (perfilFisico == null)
+                perfilFisico = new PerfilFisico();
+
+            Calendar c = Calendar.getInstance();
+            SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+            String formattedDate = df.format(c.getTime());
+
+            perfilFisico.dataAlteracao = formattedDate;
             perfilFisico.perfil = perfil;
 
             perfilFisico.peso = Float.valueOf(pesoEdit.getText().toString());
@@ -119,16 +129,22 @@ public class PerfilView extends FrameLayout {
             perfilFisico.duracaoJornadaTrabalho = Utils.converteHoraStringParaMinutoInt(duracaoJornadaTrabalhoEdit.getText().toString());
             perfilFisico.duracaoSono = Utils.converteHoraStringParaMinutoInt(horasSonoDiariasEdit.getText().toString());
             perfilFisico.save();
-
-            Snackbar.make(this, "Informações salvas com sucesso...", Snackbar.LENGTH_SHORT).show();
         }
+
+        Snackbar.make(this, "Informações salvas com sucesso...", Snackbar.LENGTH_SHORT).show();
     }
 
     private boolean possuiDiferencaInfo(PerfilFisico perfilFisico) {
         if (perfilFisico == null)
             return true;
 
+        perfilFisico.alteracaoPeso = false;
+        perfilFisico.alteracaoDJTrabalho = false;
+        perfilFisico.alteracaoDSono = false;
+        perfilFisico.alteracaoTAlimentacao = false;
+
         if(perfilFisico.peso != Float.valueOf(pesoEdit.getText().toString())) { //peso
+            perfilFisico.alteracaoPeso = true;
             return true;
         }
 
@@ -148,16 +164,22 @@ public class PerfilView extends FrameLayout {
                 break;
         }
 
-        if (TIPO_ALIMENTACAO.values()[perfilFisico.tipoAlimentacao] != ta) //tipo alimentacao
+        if (TIPO_ALIMENTACAO.values()[perfilFisico.tipoAlimentacao] != ta) {//tipo alimentacao
+            perfilFisico.alteracaoTAlimentacao = true;
             return true;
+        }
 
         int duracaoJornadaTrabalho = Utils.converteHoraStringParaMinutoInt(duracaoJornadaTrabalhoEdit.getText().toString());
-        if (perfilFisico.duracaoJornadaTrabalho != duracaoJornadaTrabalho) //duracao jornada trabalho
+        if (perfilFisico.duracaoJornadaTrabalho != duracaoJornadaTrabalho) {//duracao jornada trabalho
+            perfilFisico.alteracaoDJTrabalho = true;
             return true;
+        }
 
         int duracaoSono = Utils.converteHoraStringParaMinutoInt(horasSonoDiariasEdit.getText().toString());
-        if (perfilFisico.duracaoSono != duracaoSono) //duracao sono
+        if (perfilFisico.duracaoSono != duracaoSono) { //duracao sono
+            perfilFisico.alteracaoDSono = true;
             return true;
+        }
 
         return false;
     }
