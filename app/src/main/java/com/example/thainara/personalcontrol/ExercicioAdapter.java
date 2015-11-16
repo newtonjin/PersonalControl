@@ -34,6 +34,13 @@ public class ExercicioAdapter extends ArrayAdapter<Exercicio> {
         return tv;
     }
 
+    public Exercicio getSelected() {
+        for(int i = 0; i < getCount(); i++)
+            if (getItem(i).selected)
+                return getItem(i);
+        return null;
+    }
+
     public void unselectAll() {
         for(int i = 0; i < getCount(); i++)
             getItem(i).selected = false;

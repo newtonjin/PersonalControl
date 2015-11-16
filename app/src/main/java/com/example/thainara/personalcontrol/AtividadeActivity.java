@@ -1,6 +1,8 @@
 package com.example.thainara.personalcontrol;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -31,6 +33,7 @@ public class AtividadeActivity extends AppCompatActivity {
     @Bind(R.id.activity_atividade_add_ativ_view) View addAtividadeView;
 
     private Atividade atividade_atual;
+    private ExercicioAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,8 +47,7 @@ public class AtividadeActivity extends AppCompatActivity {
     private void init() {
         final List<Exercicio> exercicios = new Select().all().from(Exercicio.class).queryList();//pega exercícios do banco
 
-        final ExercicioAdapter adapter =
-                new ExercicioAdapter(this, exercicios);
+        adapter = new ExercicioAdapter(this, exercicios);
 
         final ListView exerciciosListView = (ListView) findViewById(R.id.activity_atividade_exercicios_list);
 
@@ -63,6 +65,7 @@ public class AtividadeActivity extends AppCompatActivity {
                 adapter.notifyDataSetChanged();
             }
         });
+
 
         atividade_atual = null;
         long idAtividade = getIntent().getLongExtra(AtividadesView.EXTRA_ID_ATIVIDADE, 0);
@@ -83,6 +86,8 @@ public class AtividadeActivity extends AppCompatActivity {
                 }
             }
         }
+
+
     }
 
     @OnClick(R.id.activity_atividade_salvar_button)
@@ -99,7 +104,7 @@ public class AtividadeActivity extends AppCompatActivity {
         String data = dataEdit.getText().toString();
         novaAtividade.data = data;
         novaAtividade.hora = Utils.converteHoraStringParaMinutoInt(horaEdit.getText().toString());
-
+        novaAtividade.exercicio = adapter.getSelected();
 
         novaAtividade.save();
 
@@ -121,6 +126,18 @@ public class AtividadeActivity extends AppCompatActivity {
                     .make(addAtividadeView, "Informe a hora da atividade", Snackbar.LENGTH_SHORT)
                     .show();
             horaEdit.requestFocus();
+            return false;
+        }
+
+        if (adapter != null) {
+            Exercicio ex = adapter.getSelected();
+            if (ex == null) {
+                Snackbar
+                        .make(addAtividadeView, "Selecione um exercício", Snackbar.LENGTH_SHORT)
+                        .show();
+                return false;
+            }
+        } else {
             return false;
         }
 
